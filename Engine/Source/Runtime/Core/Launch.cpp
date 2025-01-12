@@ -2,8 +2,6 @@
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx11.h"
 #include <tchar.h>
-#include "Vector3D.h"
-#include "Matrix4x4.h"
 #include "Window.h"
 #include "ImGuiManager.h"
 #include "Renderer.h"

@@ -3,6 +3,8 @@
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx11.h"
 #include "Window.h"
+#include "Math/Vector3D.h"
+#include "Math/Matrix4x4.h"
 
 ImGuiManager::ImGuiManager()
 {
