@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{56EB95D1-428D-C0A7-2B48-D4FB178947F8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Runtime">
+      <UniqueIdentifier>{89EE4F15-75BC-431B-5E50-B4414ABD1F80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Runtime\Core">
+      <UniqueIdentifier>{8190802D-EDF1-5D3B-765F-A4EDE2BF94FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Runtime\Core\Math">
+      <UniqueIdentifier>{FA6DC2B4-E692-1135-0FDE-F6C4FB611053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty">
+      <UniqueIdentifier>{107145F9-FC28-8746-6530-60A251072237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\GLFW">
+      <UniqueIdentifier>{4F56214C-BBE1-8E10-C4F2-110530FDEA10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\GLFW\include">
+      <UniqueIdentifier>{C25C0B98-2E94-532F-379E-B752A3547A28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\GLFW\include\GLFW">
+      <UniqueIdentifier>{416188B9-2D1C-7865-D6D3-F0AFC26DC2F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\imgui">
+      <UniqueIdentifier>{7A0AC6D2-6603-E524-8F35-CAA97B8DC430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdParty\imgui\backends">
+      <UniqueIdentifier>{E4EDCF95-50B0-0320-9960-92AC0562DCFD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Runtime\Core\CoreLog.h">
+      <Filter>Source\Runtime\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Math\Matrix4x4.h">
+      <Filter>Source\Runtime\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Math\Vector3D.h">
+      <Filter>Source\Runtime\Core\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\GLFW\include\GLFW\glfw3.h">
+      <Filter>ThirdParty\GLFW\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\GLFW\include\GLFW\glfw3native.h">
+      <Filter>ThirdParty\GLFW\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\imgui\backends\imgui_impl_glfw.h">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\imgui\backends\imgui_impl_opengl3.h">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\imgui\imgui.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdParty\imgui\imgui_internal.h">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Runtime\Core\CoreLog.cpp">
+      <Filter>Source\Runtime\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Launch.cpp">
+      <Filter>Source\Runtime\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Math\Matrix4x4.cpp">
+      <Filter>Source\Runtime\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Math\Vector3D.cpp">
+      <Filter>Source\Runtime\Core\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\imgui\backends\imgui_impl_glfw.cpp">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\imgui\backends\imgui_impl_opengl3.cpp">
+      <Filter>ThirdParty\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\imgui\imgui.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\imgui\imgui_demo.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\imgui\imgui_draw.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\imgui\imgui_tables.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdParty\imgui\imgui_widgets.cpp">
+      <Filter>ThirdParty\imgui</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
