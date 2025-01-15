@@ -8,3 +8,6 @@
 [submodule "Engine/ThirdParty/GLM"]
 	path = Engine/ThirdParty/GLM
 	url = https://github.com/g-truc/glm
+[submodule "Engine/Editor/Canvas"]
+	path = Engine/Editor/Canvas
+	url = https://github.com/RealityArtStudios/Canvas
