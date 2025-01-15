@@ -40,6 +40,8 @@ project "RealityEngine"
         "Engine/ThirdParty/imgui/backends/imgui_impl_opengl3.cpp",
         "Engine/ThirdParty/imgui/backends/imgui_impl_glfw.h",
         "Engine/ThirdParty/imgui/backends/imgui_impl_glfw.cpp",
+        "Engine/ThirdParty/GLM/glm/**.hpp",
+        "Engine/ThirdParty/GLM/glm/**.inl"
         
     }
     includedirs
@@ -47,7 +49,8 @@ project "RealityEngine"
         "Engine/ThirdParty/spdlog/include",
         "Engine/ThirdParty/GLFW/include/",
        "Engine/ThirdParty/imgui",
-		"Engine/ThirdParty/imgui/backends"
+		"Engine/ThirdParty/imgui/backends",
+        "Engine/ThirdParty/GLM"
     }
     links 
     { 
