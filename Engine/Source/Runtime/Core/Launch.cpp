@@ -10,6 +10,8 @@ static void glfw_error_callback(int error, const char* description) {
     std::cerr << "GLFW Error " << error << ": " << description << std::endl;
 }
 
+
+
 // Main application class
 class Application {
 public:
@@ -24,9 +26,10 @@ public:
         }
 
         // Set up OpenGL context
-        const char* glsl_version = "#version 130";
+        const char* glsl_version = "#version 330 core";
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
         glfwWindowHint(GLFW_SAMPLES, 4); // Enable 4x MSAA
 
         // Create window
