@@ -3,6 +3,7 @@
 #include "imgui_impl_opengl3.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <chrono>
 
 // GLFW error callback
 static void glfw_error_callback(int error, const char* description) {
@@ -38,12 +39,6 @@ public:
         glfwMakeContextCurrent(window);
         glfwSwapInterval(1); // Enable vsync
 
-        // Initialize OpenGL loader (e.g., Glad)
-      /*  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-            std::cerr << "Failed to initialize OpenGL loader" << std::endl;
-            return false;
-        }*/
-
         // Set up Dear ImGui
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
@@ -58,16 +53,19 @@ public:
         ImGui_ImplGlfw_InitForOpenGL(window, true);
         ImGui_ImplOpenGL3_Init(glsl_version);
 
+        // Initialize time tracking
+        lastTime = std::chrono::high_resolution_clock::now();
+
         return true;
     }
 
     void Run() {
-        double lastTime = glfwGetTime();
         while (!glfwWindowShouldClose(window)) {
-            // Calculate delta time
-            double currentTime = glfwGetTime();
-            float deltaTime = static_cast<float>(currentTime - lastTime);
+            // Calculate delta time using std::chrono
+            auto currentTime = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<float> elapsedTime = currentTime - lastTime;
             lastTime = currentTime;
+            float deltaTime = elapsedTime.count();
 
             // Poll events
             glfwPollEvents();
@@ -110,6 +108,7 @@ public:
 private:
     GLFWwindow* window;
     ImVec4 clear_color;
+    std::chrono::high_resolution_clock::time_point lastTime;
 };
 
 // Entry point
