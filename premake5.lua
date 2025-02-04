@@ -27,6 +27,9 @@ project "RealityEngine"
         "Engine/Source/**.h",
         "Engine/Source/**.cpp",
         "Engine/ThirdParty/GLFW/include/GLFW/glfw3.h",
+    "Engine/ThirdParty/Glad/include/glad/glad.h",
+        "Engine/ThirdParty/Glad/include/KHR/khrplatform.h",
+        "Engine/ThirdParty/Glad/src/glad.c",
         "Engine/ThirdParty/GLFW/include/GLFW/glfw3native.h",
         "Engine/ThirdParty/imgui/imgui.cpp",
 		"Engine/ThirdParty/imgui/imgui_demo.cpp",
@@ -40,6 +43,7 @@ project "RealityEngine"
         "Engine/ThirdParty/imgui/backends/imgui_impl_opengl3.cpp",
         "Engine/ThirdParty/imgui/backends/imgui_impl_glfw.h",
         "Engine/ThirdParty/imgui/backends/imgui_impl_glfw.cpp",
+"imgui_impl_opengl3_loader.h",
         "Engine/ThirdParty/GLM/glm/**.hpp",
         "Engine/ThirdParty/GLM/glm/**.inl"
         
@@ -50,11 +54,16 @@ project "RealityEngine"
         "Engine/ThirdParty/GLFW/include/",
        "Engine/ThirdParty/imgui",
 		"Engine/ThirdParty/imgui/backends",
-        "Engine/ThirdParty/GLM"
+        "Engine/ThirdParty/GLM",
+        "Engine/ThirdParty/Glad",
+    "Engine/ThirdParty/Glad/include",
+    "Engine/ThirdParty/Glad/include/KHR"
     }
+
     links 
     { 
         "GLFW",
+        "Glad",
         "opengl32.lib"
     }
     filter "system:windows"
@@ -219,4 +228,38 @@ project "GLFW"
     filter "configurations:Release"
         runtime "Release"
         optimize "speed"
+
+---------------------------------------------------------------------------------------------
+project "Glad"
+    kind "StaticLib"
+    language "C"
+    staticruntime "off"
+    
+    targetdir ("Engine/ThirdParty/Glad/bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("Engine/ThirdParty/Glad/bin-int/" .. outputdir .. "/%{prj.name}")
+
+    files
+    {
+        "Engine/ThirdParty/Glad/include/glad/glad.h",
+        "Engine/ThirdParty/Glad/include/KHR/khrplatform.h",
+        "Engine/ThirdParty/Glad/src/glad.c"
+    }
+
+includedirs
+{
+    "Engine/ThirdParty/Glad/include",
+    "Engine/ThirdParty/Glad/include/KHR"
+}
+
+    
+    filter "system:windows"
+        systemversion "latest"
+
+    filter "configurations:Debug"
+        runtime "Debug"
+        symbols "on"
+
+    filter "configurations:Release"
+        runtime "Release"
+        optimize "on"
 group ""
