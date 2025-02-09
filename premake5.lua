@@ -26,6 +26,7 @@ project "RealityEngine"
     {
         "Engine/Source/**.h",
         "Engine/Source/**.cpp",
+        "Engine/Source/**.hpp",
         "Engine/ThirdParty/GLFW/include/GLFW/glfw3.h",
     "Engine/ThirdParty/Glad/include/glad/glad.h",
         "Engine/ThirdParty/Glad/include/KHR/khrplatform.h",
@@ -50,6 +51,7 @@ project "RealityEngine"
     }
     includedirs
     {
+        "Engine/Source",
         "Engine/ThirdParty/spdlog/include",
         "Engine/ThirdParty/GLFW/include/",
        "Engine/ThirdParty/imgui",
