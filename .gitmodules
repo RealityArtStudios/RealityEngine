@@ -8,3 +8,6 @@
 [submodule "Engine/ThirdParty/GLM"]
 	path = Engine/ThirdParty/GLM
 	url = https://github.com/g-truc/glm
+[submodule "Engine/ThirdParty/Nvidia/NVRHI"]
+	path = Engine/ThirdParty/Nvidia/NVRHI
+	url = https://github.com/NVIDIA-RTX/NVRHI
