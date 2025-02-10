@@ -24,6 +24,9 @@ project "RealityEngine"
 
     files
     {
+-- Add this line to include all RHI source files
+    "Engine/Source/Runtime/Core/RHI/**.h",
+    "Engine/Source/Runtime/Core/RHI/**.cpp",
         "Engine/Source/**.h",
         "Engine/Source/**.cpp",
         "Engine/ThirdParty/GLFW/include/GLFW/glfw3.h",
@@ -50,6 +53,8 @@ project "RealityEngine"
     }
     includedirs
     {
+"Engine/Source/Runtime/Core",
+    "Engine/Source/Runtime/Core/RHI",
         "Engine/ThirdParty/spdlog/include",
         "Engine/ThirdParty/GLFW/include/",
        "Engine/ThirdParty/imgui",
