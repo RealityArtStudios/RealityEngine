@@ -36,8 +36,8 @@ static const char* fragmentShaderSource = R"(
 
 class Application {
 public:
-    Application() : window(nullptr), clear_color(0.45f, 0.55f, 0.60f, 1.00f) {}
-
+    Application();
+    ~Application();
     bool Initialize();
 
     void SetupTriangle();

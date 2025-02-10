@@ -1,5 +1,13 @@
 #include "Application.h"
 
+Application::Application() : window(nullptr), clear_color(0.45f, 0.55f, 0.60f, 1.00f)
+{
+}
+
+Application::~Application()
+{
+}
+
 bool Application::Initialize() {
     // Set up GLFW
     glfwSetErrorCallback(glfw_error_callback);
