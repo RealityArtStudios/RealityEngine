@@ -37,6 +37,7 @@ bool Window::Initialize(int width, int height, const char* title) {
     glfwMakeContextCurrent(m_Window);
     glfwSwapInterval(1);
 
+    // Initialize GLAD (Important)
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         std::cerr << "Failed to initialize GLAD" << std::endl;
         return false;

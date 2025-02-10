@@ -12,6 +12,7 @@ namespace Renderer {
         void AddVertexBuffer(VertexBuffer* vertexBuffer) override;
         void SetIndexBuffer(IndexBuffer* indexBuffer) override;
         void SetVertexAttributes() override;
+        IndexBuffer* GetIndexBuffer() const override; // Add this method
 
     private:
         uint32_t m_RendererID;

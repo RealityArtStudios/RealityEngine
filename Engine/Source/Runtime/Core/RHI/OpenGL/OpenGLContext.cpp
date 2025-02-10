@@ -1,4 +1,5 @@
 #include "OpenGLContext.h"
+#include <iostream>
 
 namespace Renderer {
     void OpenGLContext::Init() {
@@ -21,7 +22,14 @@ namespace Renderer {
         glViewport(x, y, width, height);
     }
 
-    void OpenGLContext::DrawIndexed(uint32_t count) {
-        glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
+    void OpenGLContext::DrawIndexed(const VertexArray* vertexArray, uint32_t count) {
+        vertexArray->Bind(); // Bind the vertex array before drawing
+        if (vertexArray->GetIndexBuffer()) { // Ensure the index buffer is available
+            vertexArray->GetIndexBuffer()->Bind(); // Bind the index buffer
+            glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
+        }
+        else {
+            std::cerr << "Error: No index buffer bound!" << std::endl;
+        }
     }
 }

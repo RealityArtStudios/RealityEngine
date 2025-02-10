@@ -9,6 +9,6 @@ namespace Renderer {
         void SetClearColor(const glm::vec4& color) override;
         void Clear(const ClearFlags& flags) override;
         void SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height) override;
-        void DrawIndexed(uint32_t count) override;
+        void DrawIndexed(const VertexArray* vertexArray, uint32_t count) override; // Updated signature
     };
 }

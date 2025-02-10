@@ -10,6 +10,7 @@ namespace Renderer {
         virtual void AddVertexBuffer(VertexBuffer* vertexBuffer) = 0;
         virtual void SetIndexBuffer(IndexBuffer* indexBuffer) = 0;
         virtual void SetVertexAttributes() = 0;
+        virtual IndexBuffer* GetIndexBuffer() const = 0; // Add this method
 
         static VertexArray* Create();
     };
