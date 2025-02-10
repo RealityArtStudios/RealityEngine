@@ -6,7 +6,7 @@
 // Entry point
 int main() 
 {
-    Application app;
+   Application app;
     if (!app.Initialize())
     {
         return -1;
