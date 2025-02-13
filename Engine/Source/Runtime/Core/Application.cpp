@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "RHI/Common/Texture.h"
 
 Application::Application()
     : m_ClearColor(0.45f, 0.55f, 0.60f, 1.00f),
@@ -42,9 +43,10 @@ bool Application::Initialize() {
 void Application::SetupTriangle() {
     // Vertex data
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
+        // Positions          // UVs
+        -0.5f, -0.5f, 0.0f,   // Bottom-left
+         0.5f, -0.5f, 0.0f,  // Bottom-right
+         0.0f,  0.5f, 0.0f,   // Top
     };
 
     // Index data
@@ -65,35 +67,47 @@ void Application::SetupTriangle() {
     const char* vertexShaderSrc = R"(
         #version 330 core
         layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec2 aTexCoord;
+out vec2 TexCoord;
+
         void main() {
             gl_Position = vec4(aPos, 1.0);
+    TexCoord = aTexCoord;
+
         }
     )";
 
     const char* fragmentShaderSrc = R"(
         #version 330 core
+in vec2 TexCoord;
+
         out vec4 FragColor;
+
         void main() {
-            FragColor = vec4(1.0, 0.5, 0.2, 1.0);
+           FragColor = texture(u_Texture, TexCoord);
         }
     )";
 
     m_Shader = Renderer::Shader::Create(vertexShaderSrc, fragmentShaderSrc);
 }
 void Application::Run() {
+    Renderer::Texture texture("Engine/Content/Textures/checkerboard.jpg");
+
     while (!m_Window.ShouldClose()) {
         auto currentTime = std::chrono::high_resolution_clock::now();
         std::chrono::duration<float> elapsedTime = currentTime - m_LastTime;
         m_LastTime = currentTime;
         float deltaTime = elapsedTime.count();
-
         m_Window.PollEvents();
 
         // Rendering
         m_RenderingContext->SetClearColor(m_ClearColor);
         m_RenderingContext->Clear({ true, true, false });
+        texture.Bind(0);
 
         m_Shader->Bind();
+        m_Shader->SetUniform("u_Texture", 0); // Set texture slot
+
         m_RenderingContext->DrawIndexed(m_VertexArray, 3); // Pass the vertex array here
         m_Shader->Unbind();
 

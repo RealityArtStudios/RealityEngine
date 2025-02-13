@@ -8,3 +8,6 @@
 [submodule "Engine/ThirdParty/GLM"]
 	path = Engine/ThirdParty/GLM
 	url = https://github.com/g-truc/glm
+[submodule "Engine/ThirdParty/stb"]
+	path = Engine/ThirdParty/stb
+	url = https://github.com/nothings/stb

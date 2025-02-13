@@ -28,6 +28,7 @@ namespace Renderer {
         glUseProgram(0);
     }
 
+
     // Uniform setters
     void OpenGLShader::SetUniform(const std::string& name, int value) {
         glUniform1i(GetUniformLocation(name), value);

@@ -48,11 +48,13 @@ project "RealityEngine"
         "Engine/ThirdParty/imgui/backends/imgui_impl_glfw.cpp",
 "imgui_impl_opengl3_loader.h",
         "Engine/ThirdParty/GLM/glm/**.hpp",
-        "Engine/ThirdParty/GLM/glm/**.inl"
+        "Engine/ThirdParty/GLM/glm/**.inl",
+"Engine/ThirdParty/stb/stb_image.h"
         
     }
     includedirs
     {
+"Engine/ThirdParty/stb",
 "Engine/Source/Runtime/Core",
     "Engine/Source/Runtime/Core/RHI",
         "Engine/ThirdParty/spdlog/include",
