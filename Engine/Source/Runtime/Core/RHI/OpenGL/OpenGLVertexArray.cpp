@@ -25,13 +25,16 @@ namespace Renderer {
     }
 
     void OpenGLVertexArray::SetIndexBuffer(IndexBuffer* indexBuffer) {
+        Bind();
         m_IndexBuffer = indexBuffer;
         if (m_IndexBuffer) {
             m_IndexBuffer->Bind();
         }
+        Unbind();
     }
 
     void OpenGLVertexArray::SetVertexAttributes() {
+        Bind();
         // Set vertex attributes based on the vertex buffers
         for (auto& vb : m_VertexBuffers) {
             vb->Bind();
@@ -39,6 +42,7 @@ namespace Renderer {
             glEnableVertexAttribArray(0);
             glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
         }
+        Unbind();
     }
 
     IndexBuffer* OpenGLVertexArray::GetIndexBuffer() const {
