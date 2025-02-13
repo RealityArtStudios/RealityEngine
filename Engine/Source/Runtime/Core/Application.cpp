@@ -44,9 +44,9 @@ void Application::SetupTriangle() {
     // Vertex data
     float vertices[] = {
         // Positions          // UVs
-        -0.5f, -0.5f, 0.0f,   // Bottom-left
-         0.5f, -0.5f, 0.0f,  // Bottom-right
-         0.0f,  0.5f, 0.0f,   // Top
+      -0.5f, -0.5f, 0.0f,   0.0f, 0.0f,  // Bottom-left
+       0.5f, -0.5f, 0.0f,   1.0f, 0.0f,  // Bottom-right
+       0.0f,  0.5f, 0.0f,   0.5f, 1.0f   // Top
     };
 
     // Index data
@@ -78,20 +78,20 @@ out vec2 TexCoord;
     )";
 
     const char* fragmentShaderSrc = R"(
-        #version 330 core
-in vec2 TexCoord;
+       #version 330 core
+    in vec2 TexCoord;
+    uniform sampler2D u_Texture;  // Add this line
+    out vec4 FragColor;
 
-        out vec4 FragColor;
-
-        void main() {
-           FragColor = texture(u_Texture, TexCoord);
-        }
+    void main() {
+       FragColor = texture(u_Texture, TexCoord);
+    }
     )";
 
     m_Shader = Renderer::Shader::Create(vertexShaderSrc, fragmentShaderSrc);
 }
 void Application::Run() {
-    Renderer::Texture texture("Engine/Content/Textures/checkerboard.jpg");
+    Renderer::Texture texture("Engine/Content/Textures/Texturelabs_Wood_260XL.jpg");
 
     while (!m_Window.ShouldClose()) {
         auto currentTime = std::chrono::high_resolution_clock::now();
